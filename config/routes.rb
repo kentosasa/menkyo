@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'api/get_problem'
   get 'api/get_problem'
 
+  post 'api/get_all_problems'
+  get 'api/get_all_problems'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
