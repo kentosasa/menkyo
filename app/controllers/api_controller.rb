@@ -12,8 +12,8 @@ class ApiController < ApplicationController
     render :json => data
   end
 
-  def get_all_problem
-    data = Problem.all
+  def get_all_problems
+    data = Problem.all.shuffle
     render :json => data
   end
 end
