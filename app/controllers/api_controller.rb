@@ -29,4 +29,13 @@ class ApiController < ApplicationController
     data.update(miss_count: data.miss_count+1)
     render text: "update success"
   end
+
+  def get_review_list
+    list = params[:list]
+    data = []
+    list.split(",").each do |id|
+      data << Problem.find(id.to_i)
+    end
+    render :json => data
+  end
 end

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   
   post 'api/put_miss'
   get 'api/put_miss'
+
+  post 'api/get_review_list'
+  get 'api/get_review_list'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
