@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   post 'api/get_all_problems'
   get 'api/get_all_problems'
   
-
+  post 'api/put_correct'
+  get 'api/put_correct'
+  
+  post 'api/put_miss'
+  get 'api/put_miss'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

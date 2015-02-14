@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20150209061126) do
     t.text     "explanation",                       null: false
     t.boolean  "correct_answer",                    null: false
     t.boolean  "karimen",            default: true
-    t.integer  "count",              default: 0
+    t.integer  "correct_count",      default: 0
+    t.integer  "miss_count",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

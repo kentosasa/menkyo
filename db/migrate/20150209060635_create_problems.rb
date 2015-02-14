@@ -6,7 +6,8 @@ class CreateProblems < ActiveRecord::Migration
       t.text :explanation, null: false
       t.boolean :correct_answer, null: false
       t.boolean :karimen, default: true
-      t.integer :count, default: 0
+      t.integer :correct_count, default: 0
+      t.integer :miss_count, default: 0
 
       t.timestamps
     end

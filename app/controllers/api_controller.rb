@@ -16,4 +16,18 @@ class ApiController < ApplicationController
     data = Problem.all.shuffle
     render :json => data
   end
+
+  def put_correct
+    id = params[:id]
+    data = Problem.find(id.to_i)    
+    data.update(correct_count: data.correct_count+1)
+    render text: "update success"
+  end
+
+  def put_miss
+    id = params[:id]
+    data = Problem.find(id.to_i)    
+    data.update(miss_count: data.miss_count+1)
+    render text: "update success"
+  end
 end
