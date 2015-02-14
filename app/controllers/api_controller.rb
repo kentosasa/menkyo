@@ -1,6 +1,5 @@
 class ApiController < ApplicationController
   def get_problems
-    binding.pry
     count = params[:count]
     data = Problem.all.sample(count.to_i)
     render :json => data
