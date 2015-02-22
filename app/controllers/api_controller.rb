@@ -36,6 +36,7 @@ class ApiController < ApplicationController
     list.split(",").each do |id|
       data << Problem.find(id.to_i)
     end
+    data =  data.shuffle
     render :json => data
   end
 end
