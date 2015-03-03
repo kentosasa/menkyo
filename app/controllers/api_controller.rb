@@ -1,18 +1,28 @@
 class ApiController < ApplicationController
   def get_problems
-    count = params[:count]
-    data = Problem.all.sample(count.to_i)
+    if params[:honmen].present?
+      count = params[:count]
+      data = Problem.all.sample(count.to_i)
+    else
+      count = params[:count]
+      data = Problem.where(karimen:true).sample(count.to_i)
+    end
     render :json => data
+  end
+
+  def get_all_problems
+    if params[:honmen].present?
+      data = Problem.all.shuffle
+      render :json => data
+    else
+      data = Problem.where(karimen: true).shuffle
+      render :json => data
+    end
   end
 
   def get_problem
     id = params[:id]
     data = Problem.find(id.to_i)
-    render :json => data
-  end
-
-  def get_all_problems
-    data = Problem.all.shuffle
     render :json => data
   end
 
