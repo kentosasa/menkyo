@@ -42,3 +42,5 @@ gem 'pry-rails', :group => :development #デバッグ用
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => [:production]
 gem 'therubyracer', platforms: :ruby
+
+gem 'nokogiri'
