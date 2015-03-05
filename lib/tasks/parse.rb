@@ -11,17 +11,20 @@ url = ARGV[0]
 
 doc = Nokogiri.HTML(open(url))
 doc.css('tr').each do |e|
-  begin
     #新規データ
     problem = Problem.new
     #本面データ
     problem.karimen = false
     #要素抽出
     tds = e.css("td")
-    #問題文
-    problem.question_text = tds[1].text.gsub(tds[1].css("font").text, "")
     #解説
-    problem.explanation = tds[1].css("font").text
+    explanation = tds[1].css("font")[0].text
+
+    #問題文
+    problem.question_text = tds[1].text.gsub(explanation, "")
+
+    #解説
+    problem.explanation = explanation
     #答えの判断
     if tds[2].text.include?("正")
       problem.correct_answer = true
@@ -33,7 +36,4 @@ doc.css('tr').each do |e|
       problem.question_image_url = "http://www5b.biglobe.ne.jp/~nobusann/777/honmen/#{tds[1].css("img").attribute('src').value}"
     end
     problem.save
-  rescue Exception => e
-    puts e.message
-  end
 end
