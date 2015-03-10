@@ -20,14 +20,12 @@ doc.css('tr').each do |e|
     #解説
     num = 0
     explanation = ""
-    loop{
-      explanation = tds[1].css("font")[num].text.gsub(" ", "").gsub("\n", "").gsub("　", "")
-      if explanation.length > 5
-        break
-      else
-        num = num + 1
+    tds[1].css("font").each do |e|
+      if not explanation.include?(e)
+        explanation += e.text
       end
-    }
+    end
+    explanation = explanation.gsub(" ", "").gsub("\n", "").gsub("　", "")
 
     #問題文
     problem.question_text = tds[1].text.gsub(explanation, "").gsub(" ", "").gsub("\n", "").gsub("　", "")
