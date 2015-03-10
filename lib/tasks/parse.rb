@@ -25,10 +25,10 @@ doc.css('tr').each do |e|
         explanation += e.text
       end
     end
-    explanation = explanation.gsub(" ", "").gsub("　", "").gsub(/(\r\n|\r|\n)/, "")
+    explanation = explanation.gsub(" ", "").gsub("　", "").gsub(/(\r\n|\r|\n)/, "").gsub("左図", "下図")
 
     #問題文
-    problem.question_text = tds[1].text.gsub(" ", "").gsub("　", "").gsub(/(\r\n|\r|\n)/, "").gsub(explanation, "")
+    problem.question_text = tds[1].text.gsub(" ", "").gsub("　", "").gsub(/(\r\n|\r|\n)/, "").gsub(explanation, "").gsub("左図", "下図")
 
     #解説
     problem.explanation = explanation

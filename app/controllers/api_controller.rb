@@ -2,8 +2,8 @@ class ApiController < ApplicationController
   def get_problems
     if params[:honmen].present?
       count = params[:count]
-      data = Problem.where.not(question_image_url: nil)
-      # data = Problem.all.sample(count.to_i)
+      # data = Problem.where.not(question_image_url: nil)
+      data = Problem.all.sample(count.to_i)
     else
       count = params[:count]
       data = Problem.where(karimen:true).sample(count.to_i)
