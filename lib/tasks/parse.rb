@@ -18,10 +18,10 @@ doc.css('tr').each do |e|
     #要素抽出
     tds = e.css("td")
     #解説
-    num = 0;
+    num = 0
     explanation = ""
     loop{
-      explanation = tds[1].css("font")[num].text.gsub(" ", "")
+      explanation = tds[1].css("font")[num].text.gsub(" ", "").gsub("\n", "").gsub("　", "")
       if explanation.length > 5
         break
       else
@@ -30,7 +30,7 @@ doc.css('tr').each do |e|
     }
 
     #問題文
-    problem.question_text = tds[1].text.gsub(explanation, "").gsub(" ", "").gsub("\n", "")
+    problem.question_text = tds[1].text.gsub(explanation, "").gsub(" ", "").gsub("\n", "").gsub("　", "")
 
     #解説
     problem.explanation = explanation
