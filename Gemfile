@@ -44,3 +44,4 @@ gem 'pg', :group => [:production]
 gem 'therubyracer', platforms: :ruby
 
 gem 'nokogiri'
+gem 'newrelic_rpm'
